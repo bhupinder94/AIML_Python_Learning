@@ -5,7 +5,7 @@
 # 
 # A function is reusable code that performs a specific task.
 
-# In[ ]:
+# In[1]:
 
 
 # day 3 - Functions in python
@@ -14,7 +14,23 @@
 print('welcome to day 3: Functions and Modular Programming!')
 
 
-# In[ ]:
+# Explanation:
+# 
+# def means define a new function.
+# 
+# greet() is the function name.
+# 
+# Everything inside (indented) is the function body.
+# 
+# You can call this function anytime by writing:
+# 
+# greet()
+# 
+# 
+# 🟢 Think of it like:
+# A machine that says “Hello” whenever you press a button.
+
+# In[2]:
 
 
 # basic syntex
@@ -24,7 +40,7 @@ def greet():
 greet()
 
 
-# In[2]:
+# In[3]:
 
 
 # Function With Parameters
@@ -35,7 +51,35 @@ welcome('AI Learner')
 welcome('we will achieve our goals together with dedication, hard work and consistant patience')
 
 
-# In[ ]:
+# Explanation:
+# 
+# a and b are parameters (inputs).
+# 
+# When you call add(10, 5) → it prints 15.
+# 
+# The function can be reused with any numbers.
+# 
+# 🟢 Think of it like:
+# A calculator machine — you enter two numbers, it gives you the sum.
+
+# In[4]:
+
+
+def add(a, b):
+ print(a+b)
+add(2,3)  
+
+
+# Explanation:
+# 
+# return gives back the value to the place where you called the function.
+# 
+# You can store the result in a variable (result) and use it later.
+# 
+# 🟢 Think of it like:
+# A function that gives back the answer instead of printing it immediately.
+
+# In[5]:
 
 
 # Function With Return Value
@@ -45,7 +89,29 @@ result = add(43343,56674)
 print('Addition =', result)
 
 
-# In[2]:
+# You can return more than one value from a function.
+# you get four results: sum, difference, multiply, divide.
+# 
+# 🟢 Think of it like:
+# A machine that gives you all 4 math answers in one go.
+
+# In[6]:
+
+
+# multiple returns
+def calculation(a, b):
+    return a+b, a*b, a-b, a//b
+sum, product, difference, division = calculation(4,5)
+print(sum, product, difference, division )
+
+
+# In[ ]:
+
+
+
+
+
+# In[7]:
 
 
 # multiple returns
@@ -58,14 +124,14 @@ print('difference =', difference)
 print('division =',division)
 
 
-# In[1]:
+# In[8]:
 
 
 print('working everything fine!')
 print("working")
 
 
-# In[5]:
+# In[9]:
 
 
 #Function with multiple returns
@@ -82,34 +148,76 @@ a, d, p, q = operations(4545448, 784444)
 print(a, d, p, q, sep = '\n')
 
 
-# In[13]:
+# Explanation:
+# 
+# If you don’t pass a value, it uses the default one (“Bhupinder”).
+# 
+# You can also override it:
+# 
+# greet("John")
+# 
+# 
+# 🟢 Think of it like:
+# A vending machine that gives coffee by default, unless you ask for tea.
+
+# In[10]:
 
 
 #Default Arguments
 #very useful for aiml funnction later
 def greet(name = 'Bhupinder', Greeting = 'hello', Goal = 'AIML Mastery', sep = ' '):
-    print(Greeting, name, 'how are you? I hope you are enjoying your journey toward', Goal, '.')
+   print(Greeting, name, 'how are you? I hope you are enjoying your journey toward', Goal, '.')
 
 greet()
-greet('John')
+greet('John','hey','millionair')
 
    
 
 
 
-# In[2]:
+# Explanation:
+# 
+# You can give arguments by name, so the order doesn’t matter.
+# 
+# 🟢 Think of it like:
+# Labeling your inputs so the function knows exactly which is which.
+
+# In[11]:
 
 
 # Keyword Arguments(order doesnt matter)
 def intro(name, age, skill):
     print(f'My name is {name}. I am {age} years old and I am learning {skill}.')
 intro(skill = 'AIML', age = 30, name  = 'Bhupinder')
+intro('money', 'das', 30)
 
 
 
 
 
-# In[ ]:
+
+# Explanation:
+# 
+# *numbers means you can give any number of values (1, 2, or 100).
+# 
+# Python treats them as a list inside the function.
+# 
+# 🟢 Think of it like:
+# A basket that can hold any number of fruits — big or small.
+
+# In[24]:
+
+
+del sum
+
+
+# In[26]:
+
+
+print(sum)
+
+
+# In[25]:
 
 
 # args - Unlimited input arguments
@@ -117,8 +225,9 @@ def math_all(*numbs):
    # """Return (sum, product, subtraction, division) over the supplied numbers."""
     if not numbs:
         raise ValueError('math_all requires at least one numeric argument')
+    
     # sum
-    add = sum(numbs)
+    add_no = sum(numbs)
     # product
     mult = 1
     for n in numbs:
@@ -134,7 +243,7 @@ def math_all(*numbs):
         if n == 0:
             raise ZeroDivisionError('division by zero encountered in math_all')
         div /= n
-    return add, mult, sub, div
+    return add_no, mult, sub, div
 result = math_all(5858, 5879, 4681, 3555, 4844)
 sum_res, prod_res, sub_res, div_res = result
 print('Sum =', sum_res)
@@ -150,19 +259,46 @@ print('Division =', div_res)
 
 
 
-# In[ ]:
+# In[22]:
+
+
+print(sum)
+
+
+# In[27]:
+
+
+def total_sum(*numbers):
+  return sum(numbers)
+total_sum(1,26,8,48,5)
+
+  
+
+
+
+
+# In[29]:
 
 
 def total_price(*prices, tax_rate  = 0.05):
      total = sum(prices)
      total += total * tax_rate
      return total
-result = total_price(642, 154, 14845,  155)
+result = total_price(642, 154, 14845,  155, tax_rate = 0.09)
 print('total price =', result)
 
 
 
-# In[1]:
+# Explanation:
+# 
+# **info collects all key=value pairs into a dictionary.
+# 
+# You can store multiple named details easily.
+# 
+#  Think of it like:
+# Packing details into a box with labels — name, goal, year, etc.
+
+# In[ ]:
 
 
 #kwargs - unlimited key- value inputs
@@ -178,7 +314,17 @@ profile(name='Bhupinder', domain='AIML', goal='startup', year=2025)
 
 
 
-# In[7]:
+# In[32]:
+
+
+def profile(**info):
+    return(info)
+
+total = profile(name='Bhupinder', domain='AIML', goal='startup', year=2025)
+print(total)
+
+
+# In[ ]:
 
 
 # combining everything - Pro Level Functions88
@@ -198,7 +344,7 @@ print(smart_functions(54,44,84,48, operation='mul', project='AI'))
   
 
 
-# In[7]:
+# In[ ]:
 
 
 # PRACTICE EXERCISES(MUST DO)
@@ -259,7 +405,7 @@ print(is_prime(prime))
         
 
 
-# In[9]:
+# In[ ]:
 
 
 # project : Smart Calculator(2.0 Function Based)
